@@ -4,7 +4,10 @@
 
 ### 1. What is TypeScript and what are its advantages over JavaScript?
 
-**Answer:** TypeScript is a strongly-typed, object-oriented, compiled language that is a superset of JavaScript. Advantages include:
+<details>
+<summary>View Answer</summary>
+
+TypeScript is a strongly-typed, object-oriented, compiled language that is a superset of JavaScript. Advantages include:
 
 - Static type checking at compile time
 - Better IDE support with autocompletion and intellisense
@@ -13,10 +16,14 @@
 - Better code organization with modules and namespaces
 - Support for the latest ECMAScript features
 - Improved maintainability for large codebases
+</details>
 
 ### 2. Explain the difference between `interface` and `type` in TypeScript.
 
-**Answer:** Both `interface` and `type` are used for defining custom types, but they have some differences:
+<details>
+<summary>View Answer</summary>
+
+Both `interface` and `type` are used for defining custom types, but they have some differences:
 
 **Interfaces:**
 
@@ -54,9 +61,14 @@ type ID = string | number;
 type UserOrPoint = User | Point;
 ```
 
+</details>
+
 ### 3. What are TypeScript generics and why are they useful?
 
-**Answer:** Generics allow you to create reusable components that work with a variety of types rather than a single one. They provide a way to make components work with any data type and not restrict to one.
+<details>
+<summary>View Answer</summary>
+
+Generics allow you to create reusable components that work with a variety of types rather than a single one. They provide a way to make components work with any data type and not restrict to one.
 
 Benefits include:
 
@@ -100,9 +112,14 @@ class List<T> implements Collection<T> {
 }
 ```
 
+</details>
+
 ### 4. What are the different access modifiers in TypeScript?
 
-**Answer:** TypeScript has three access modifiers:
+<details>
+<summary>View Answer</summary>
+
+TypeScript has three access modifiers:
 
 - `public`: (default) Accessible from anywhere
 - `private`: Accessible only within the class
@@ -131,9 +148,12 @@ class Employee {
 }
 ```
 
+</details>
+
 ### 5. Explain the `any`, `unknown`, and `never` types in TypeScript.
 
-**Answer:**
+<details>
+<summary>View Answer</summary>
 
 - `any`: Represents any JavaScript value without type-checking. It effectively opts out of type checking.
 - `unknown`: Similar to `any` but safer, as it requires type checking or assertion before performing operations on the values.
@@ -161,11 +181,14 @@ function infiniteLoop(): never {
 }
 ```
 
+</details>
+
 ## Advanced TypeScript Concepts
 
 ### 1. What are Union and Intersection types?
 
-**Answer:**
+<details>
+<summary>View Answer</summary>
 
 - **Union types** (`|`) represent values that could be one of several types. A value has a union type when it could be one of the specified types.
 - **Intersection types** (`&`) combine multiple types into one, allowing you to add together existing types to get a single type with all features.
@@ -197,9 +220,14 @@ const manager: ManagerWithEmployeeInfo = {
 };
 ```
 
+</details>
+
 ### 2. Explain Mapped Types and provide examples.
 
-**Answer:** Mapped types allow you to create new types based on old ones by transforming properties. They are built on the syntax for index signatures.
+<details>
+<summary>View Answer</summary>
+
+Mapped types allow you to create new types based on old ones by transforming properties. They are built on the syntax for index signatures.
 
 ```typescript
 // Basic mapped type
@@ -230,9 +258,14 @@ type Nullable<T> = {
 };
 ```
 
+</details>
+
 ### 3. What are Conditional Types in TypeScript?
 
-**Answer:** Conditional types select one of two possible types based on a condition. They help to model the relationship between types in a more expressive way.
+<details>
+<summary>View Answer</summary>
+
+Conditional types select one of two possible types based on a condition. They help to model the relationship between types in a more expressive way.
 
 ```typescript
 type TypeName<T> = T extends string
@@ -258,9 +291,14 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 type T5 = NonNullable<string | number | undefined>; // string | number
 ```
 
+</details>
+
 ### 4. Explain TypeScript Decorators.
 
-**Answer:** Decorators are a special kind of declaration that can be attached to classes, methods, accessors, properties, or parameters. They are functions that can modify the behavior of the decorated item.
+<details>
+<summary>View Answer</summary>
+
+Decorators are a special kind of declaration that can be attached to classes, methods, accessors, properties, or parameters. They are functions that can modify the behavior of the decorated item.
 
 ```typescript
 // Method Decorator
@@ -293,9 +331,14 @@ class Person {
 }
 ```
 
+</details>
+
 ### 5. What are some common TypeScript utility types and when would you use them?
 
-**Answer:** TypeScript provides several utility types to help with common type transformations:
+<details>
+<summary>View Answer</summary>
+
+TypeScript provides several utility types to help with common type transformations:
 
 - `Partial<T>`: Makes all properties in T optional
 - `Required<T>`: Makes all properties in T required
@@ -334,9 +377,14 @@ type UserMap = Record<string, User>;
 // { [key: string]: User }
 ```
 
+</details>
+
 ## TypeScript Coding Challenges
 
 ### Challenge 1: Implement a Generic Stack
+
+<details>
+<summary>View Problem & Solution</summary>
 
 **Problem:** Implement a generic stack data structure with `push`, `pop`, `peek`, and `isEmpty` methods.
 
@@ -376,7 +424,12 @@ console.log(numberStack.pop()); // 2
 console.log(numberStack.size()); // 1
 ```
 
+</details>
+
 ### Challenge 2: Type-Safe Event Emitter
+
+<details>
+<summary>View Problem & Solution</summary>
 
 **Problem:** Create a type-safe event emitter that ensures event handlers receive the correct argument types based on the event name.
 
@@ -429,12 +482,14 @@ eventEmitter.emit("userLoggedIn", {
   userId: "user-123",
   timestamp: Date.now(),
 });
-
-// Type error: wrong event parameter type
-// eventEmitter.emit('userLoggedIn', { buttonId: 'btn-1' });
 ```
 
-### Challenge 3: Implementing a Type-Safe Function Overloads
+</details>
+
+### Challenge 3: Implementing Type-Safe Function Overloads
+
+<details>
+<summary>View Problem & Solution</summary>
 
 **Problem:** Create a function that can properly handle different parameter types with appropriate return types.
 
@@ -460,9 +515,6 @@ function process(
   } else if (Array.isArray(input)) {
     return input.reduce((sum, num) => sum + num, 0);
   }
-
-  // This should never happen due to TypeScript's type checking,
-  // but necessary for the implementation
   throw new Error("Invalid input type");
 }
 
@@ -471,12 +523,14 @@ const result1 = process(10); // 20
 const result2 = process("hello"); // 'HELLO'
 const result3 = process(true); // false
 const result4 = process([1, 2, 3]); // 6
-
-// Type error
-// const result5 = process({});
 ```
 
+</details>
+
 ### Challenge 4: Advanced Type Manipulation
+
+<details>
+<summary>View Problem & Solution</summary>
 
 **Problem:** Write a type utility that extracts the exact return type from a function, including promises.
 
@@ -510,3 +564,5 @@ type User = ExactReturnType<typeof fetchUser>; // { id: number; name: string }
 type Posts = ExactReturnType<typeof fetchPosts>; // { id: number; title: string }[]
 type Now = ExactReturnType<typeof getNow>; // Date
 ```
+
+</details>

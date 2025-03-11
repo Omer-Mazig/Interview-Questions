@@ -4,7 +4,10 @@
 
 ### 1. What is a closure in JavaScript?
 
-**Answer:** A closure is a function that has access to its own scope, the outer function's scope, and the global scope, even after the outer function has finished executing. It "closes over" the variables from its parent function's scope.
+<details>
+<summary>View Answer</summary>
+
+A closure is a function that has access to its own scope, the outer function's scope, and the global scope, even after the outer function has finished executing. It "closes over" the variables from its parent function's scope.
 
 **Example:**
 
@@ -23,11 +26,14 @@ console.log(counter()); // 1
 console.log(counter()); // 2
 ```
 
-In this example, the inner function maintains access to the `count` variable even after `createCounter` has finished execution. This is a closure.
+</details>
 
 ### 2. Explain the event loop in JavaScript.
 
-**Answer:** The event loop is a mechanism that allows JavaScript to perform non-blocking operations despite being single-threaded. It works by:
+<details>
+<summary>View Answer</summary>
+
+The event loop is a mechanism that allows JavaScript to perform non-blocking operations despite being single-threaded. It works by:
 
 1. Executing code in the call stack
 2. Moving asynchronous tasks (like callbacks, promises, and event handlers) to the task queue or microtask queue when they're ready
@@ -37,18 +43,25 @@ The event loop continuously checks if the call stack is empty, and if it is, it 
 
 Microtasks (from Promises) have priority over regular tasks (from setTimeout, events, etc.).
 
+</details>
+
 ### 3. What's the difference between `null` and `undefined`?
 
-**Answer:**
+<details>
+<summary>View Answer</summary>
 
 - `undefined` means a variable has been declared but has not been assigned a value
 - `null` is an assignment value that represents no value or no object
 - `undefined` is a type itself, while `null` is an object
 - `typeof undefined` is 'undefined', whereas `typeof null` is 'object' (this is considered a bug in JavaScript)
+</details>
 
 ### 4. Explain hoisting in JavaScript.
 
-**Answer:** Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope during the compilation phase.
+<details>
+<summary>View Answer</summary>
+
+Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope during the compilation phase.
 
 - Variable declarations (`var`) are hoisted and initialized with `undefined`
 - `let` and `const` declarations are hoisted but not initialized (Temporal Dead Zone)
@@ -71,39 +84,40 @@ var sayGoodbye = function () {
 };
 ```
 
+</details>
+
 ### 5. What is the difference between `==` and `===` operators?
 
-**Answer:**
+<details>
+<summary>View Answer</summary>
 
 - `==` (loose equality) compares values after type conversion
 - `===` (strict equality) compares both value and type without conversion
 - `===` is generally preferred as it avoids unexpected type coercion issues
-
-### 6. How does prototypal inheritance work in JavaScript?
-
-**Answer:** In JavaScript, objects can inherit properties and methods from other objects via their prototype chain. When accessing a property:
-
-1. JavaScript first looks for the property on the object itself
-2. If not found, it looks at the object's prototype (`__proto__` or `[[Prototype]]`)
-3. This continues up the prototype chain until the property is found or until reaching an object with a `null` prototype (typically `Object.prototype`)
-
-Modern JavaScript uses `class` syntax, but this is syntactic sugar over the prototype-based inheritance system.
+</details>
 
 ## Asynchronous JavaScript
 
 ### 1. Explain Promises and their benefits over callbacks.
 
-**Answer:** Promises are objects representing the eventual completion or failure of an asynchronous operation. Benefits include:
+<details>
+<summary>View Answer</summary>
+
+Promises are objects representing the eventual completion or failure of an asynchronous operation. Benefits include:
 
 - Avoiding callback hell (deeply nested callbacks)
 - Better error handling with `.catch()`
 - Chaining with `.then()`
 - Composability with `Promise.all()`, `Promise.race()`, etc.
 - A more readable flow of asynchronous operations
+</details>
 
 ### 2. What is async/await and how does it improve asynchronous code?
 
-**Answer:** `async/await` is syntactic sugar on top of Promises that allows asynchronous code to be written in a more synchronous style.
+<details>
+<summary>View Answer</summary>
+
+`async/await` is syntactic sugar on top of Promises that allows asynchronous code to be written in a more synchronous style.
 
 - An `async` function always returns a Promise
 - The `await` keyword pauses execution until the Promise resolves
@@ -131,20 +145,28 @@ async function getUserData() {
 }
 ```
 
+</details>
+
 ### 3. What is the difference between microtasks and macrotasks in the event loop?
 
-**Answer:**
+<details>
+<summary>View Answer</summary>
 
 - **Macrotasks**: setTimeout, setInterval, setImmediate, I/O operations, UI rendering
 - **Microtasks**: Promise callbacks, queueMicrotask, MutationObserver callbacks
 
 The event loop prioritizes microtasks over macrotasks. After each macrotask, the event loop will empty the entire microtask queue before moving on to the next macrotask.
 
+</details>
+
 ## ES6+ Features
 
 ### 1. Explain destructuring in ES6.
 
-**Answer:** Destructuring is a JavaScript expression that allows extracting values from arrays or properties from objects into distinct variables.
+<details>
+<summary>View Answer</summary>
+
+Destructuring is a JavaScript expression that allows extracting values from arrays or properties from objects into distinct variables.
 
 ```javascript
 // Array destructuring
@@ -156,9 +178,14 @@ const { name, age, job = "Developer" } = { name: "John", age: 30 };
 console.log(name, age, job); // 'John', 30, 'Developer'
 ```
 
+</details>
+
 ### 2. What are arrow functions and how do they differ from regular functions?
 
-**Answer:** Arrow functions are a more concise syntax for writing functions in ES6. Key differences:
+<details>
+<summary>View Answer</summary>
+
+Arrow functions are a more concise syntax for writing functions in ES6. Key differences:
 
 - Shorter syntax: `(params) => expression` or `(params) => { statements }`
 - No `this` binding: `this` is lexically inherited from the surrounding code
@@ -166,36 +193,43 @@ console.log(name, age, job); // 'John', 30, 'Developer'
 - Cannot be used as constructors (no `new` keyword)
 - No `super` or `new.target`
 - Implicit return for single-expression functions
+</details>
 
 ### 3. Explain the spread operator and rest parameters.
 
-**Answer:**
+<details>
+<summary>View Answer</summary>
 
 - **Spread operator** (`...`) expands an iterable (array, string) into individual elements
 
-  ```javascript
-  const arr1 = [1, 2, 3];
-  const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
 
-  const obj1 = { a: 1, b: 2 };
-  const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
-  ```
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+```
 
 - **Rest parameters** (`...`) collect multiple elements into an array
 
-  ```javascript
-  function sum(...numbers) {
-    return numbers.reduce((acc, num) => acc + num, 0);
-  }
+```javascript
+function sum(...numbers) {
+  return numbers.reduce((acc, num) => acc + num, 0);
+}
 
-  sum(1, 2, 3, 4); // 10
-  ```
+sum(1, 2, 3, 4); // 10
+```
+
+</details>
 
 ## Advanced Concepts
 
 ### 1. Explain the concept of event delegation.
 
-**Answer:** Event delegation is a technique where instead of attaching an event listener to each individual similar element, the event listener is attached to a parent element. Events that occur on the children "bubble up" to the parent. This is more efficient for:
+<details>
+<summary>View Answer</summary>
+
+Event delegation is a technique where instead of attaching an event listener to each individual similar element, the event listener is attached to a parent element. Events that occur on the children "bubble up" to the parent. This is more efficient for:
 
 - Dynamically created elements
 - Large numbers of similar elements
@@ -215,9 +249,14 @@ document.querySelector("ul").addEventListener("click", (event) => {
 });
 ```
 
+</details>
+
 ### 2. What is memoization and how would you implement it?
 
-**Answer:** Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again.
+<details>
+<summary>View Answer</summary>
+
+Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again.
 
 ```javascript
 function memoize(fn) {
@@ -245,9 +284,14 @@ console.log(expensiveFunction(10)); // Computing... 100
 console.log(expensiveFunction(10)); // 100 (from cache)
 ```
 
+</details>
+
 ### 3. What is the purpose of the `use strict` directive?
 
-**Answer:** `"use strict"` is a literal expression that enables strict mode in JavaScript. It helps by:
+<details>
+<summary>View Answer</summary>
+
+`"use strict"` is a literal expression that enables strict mode in JavaScript. It helps by:
 
 - Preventing the use of undeclared variables
 - Making assignments to non-writable properties throw errors
@@ -256,10 +300,14 @@ console.log(expensiveFunction(10)); // 100 (from cache)
 - Making `this` undefined in functions called without an object context
 - Forbidding octal syntax and the `with` statement
 - Helping code run faster by enabling optimizations
+</details>
 
 ### 4. Explain JavaScript modules (ES modules) and their benefits.
 
-**Answer:** ES modules are a standard format to package JavaScript code for reuse. Features include:
+<details>
+<summary>View Answer</summary>
+
+ES modules are a standard format to package JavaScript code for reuse. Features include:
 
 - Each module has its own scope (no global namespace pollution)
 - Static structure (imports/exports can't be changed at runtime)
@@ -281,3 +329,5 @@ export default class Circle {
 // Importing
 import Circle, { PI, circleArea } from "./circle.js";
 ```
+
+</details>
